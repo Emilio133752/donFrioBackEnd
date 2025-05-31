@@ -9,6 +9,7 @@ const app = express();
 
 app.use(cors({
   origin: 'https://don-frio-front-end.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
 
