@@ -4,7 +4,6 @@ const { generateToken } = require('../utils/jwt');
 
 const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(password);
   try {
     const existingUser = await User.findOne({ email });
 
@@ -30,6 +29,17 @@ const registerUser = async (req, res) => {
     res.status(500).json({ message: "Erro ao criar o usuário", error: err });
   }
 };
+
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select('-password'); // Remove as senhas da resposta
+    res.status(200).json(users);
+  } catch (err) {
+    console.error("Erro ao buscar usuários:", err);
+    res.status(500).json({ message: "Erro ao buscar usuários", error: err });
+  }
+};
+
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
@@ -71,4 +81,4 @@ const getUserProfile = async (req, res) => {
 };
 
 
-module.exports = { registerUser, loginUser, getUserProfile };
+module.exports = { registerUser, loginUser, getUserProfile, getAllUsers };
