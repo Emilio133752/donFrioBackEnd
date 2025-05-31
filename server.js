@@ -8,7 +8,7 @@ const produtosRoute = require('./routes/produtos')
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://donfriobackend.onrender.com',
   credentials: true
 }));
 
