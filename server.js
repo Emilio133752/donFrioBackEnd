@@ -8,7 +8,7 @@ const produtosRoute = require('./routes/produtos')
 const app = express();
 
 app.use(cors({
-  origin: 'https://don-frio-front-end.vercel.app',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
