@@ -8,7 +8,7 @@ const produtosRoute = require('./routes/produtos')
 const app = express();
 
 app.use(cors({
-  origin: 'https://donfriobackend.onrender.com',
+  origin: 'https://don-frio-front-end.vercel.app',
   credentials: true
 }));
 
